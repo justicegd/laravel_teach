@@ -59,3 +59,9 @@ Route::group(['prefix' => 'test','middleware'=>'tea.2'], function () {
  */
 Route::get('/tea_6', 'tea_1\Tea1@goView');
 
+/**
+ * 取得所有使用者
+ */
+Route::get('/tea_7', 'tea_1\Tea1@getUser');
+
+

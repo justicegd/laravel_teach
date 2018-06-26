@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\tea_1;
 
 use App\Http\Controllers\Controller;
+use App\Repositories\UsersService;
 
 
 class Tea1 extends Controller
@@ -12,12 +13,19 @@ class Tea1 extends Controller
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(UsersService $usersSer)
     {
-
+        $this->usersSer = $usersSer;
     }
 
-    function goView(){
+    function goView()
+    {
         return view('tea.tea1');
+    }
+
+    function getUser()
+    {
+        $users = $this->usersSer->getAll();
+        dd($users );
     }
 }
