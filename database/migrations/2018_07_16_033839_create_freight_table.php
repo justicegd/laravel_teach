@@ -16,7 +16,7 @@ class CreateFreightTable extends Migration
         Schema::create('freight', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->integer('prize');
+            $table->integer('price');
             $table->timestamps();
         });
     }

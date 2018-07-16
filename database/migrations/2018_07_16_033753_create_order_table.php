@@ -17,8 +17,9 @@ class CreateOrderTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->text('address');
-            $table->integer('order_status');
-            $table->integer('detail_id');
+            $table->string('phone');
+            $table->integer('freight_amout')->default(0);
+            $table->integer('order_status')->default(0);
             $table->timestamps();
         });
     }

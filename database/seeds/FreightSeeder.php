@@ -15,19 +15,19 @@ class FreightSeeder extends Seeder
         $dates    = [
             [
                 'name'  => '黑貓宅配',
-                'prize' => '160',
+                'price' => '160',
                 'created_at' => $datetime,
                 'updated_at' => $datetime,
             ],
             [
                 'name'  => '新竹物流',
-                'prize' => '120',
+                'price' => '120',
                 'created_at' => $datetime,
                 'updated_at' => $datetime,
             ],
             [
                 'name'  => '7-11貨到付款',
-                'prize' => '60',
+                'price' => '60',
                 'created_at' => $datetime,
                 'updated_at' => $datetime,
             ],

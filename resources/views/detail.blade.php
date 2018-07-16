@@ -41,9 +41,7 @@
 
 <!-- Page Content -->
 <div class="container">
-    <h1>訂購</h1>
-    <form method="post" action="{{route('create-order')}}">
-        {{ csrf_field() }}
+    <h1>訂購明細</h1>
     <table class="table">
         <thead class="thead-dark">
         <tr>
@@ -56,65 +54,44 @@
         <tr>
             <th scope="row">1</th>
             <td>姓名</td>
-            <td><input type="text" id="name" name="name" value="irvin"></td>
+            <td>{{$order->name}}</td>
         </tr>
         <tr>
             <th scope="row">2</th>
             <td>電話</td>
-            <td><input type="text" id="phone" name="phone" value="0987654321"></td>
+            <td>{{$order->phone}}</td>
         </tr>
         <tr>
             <th scope="row">3</th>
             <td>地址</td>
-            <td><input type="text" id="address" name="address" value="高雄市新興區"></td>
+            <td>{{$order->address}}</td>
         </tr>
         <tr>
             <th scope="row">4</th>
-            <td>選擇商品</td>
-            <td>
-                <select id="product" name="product">
-                    @foreach($products as $product )
-                    <option value ="{{$product->id}} ">{{$product->name}} 價錢 {{$product->price}}</option>
-                    @endforeach
-                </select>
-            </td>
+            <td>運費</td>
+            <td>{{$order->freight_amout}}</td>
         </tr>
         <tr>
             <th scope="row">5</th>
-            <td>數量</td>
-            <td>
-                <select id="total" name="total">
-                    <option value ="1">1</option>
-                    <option value ="2">2</option>
-                    <option value ="3">3</option>
-                    <option value ="4">4</option>
-                    <option value ="5">5</option>
-                    <option value ="6">6</option>
-                    <option value ="7">7</option>
-                </select>
-            </td>
+            <td>訂單狀態</td>
+            <td>{{$order->order_status}}</td>
         </tr>
         <tr>
-            <th scope="row">4</th>
-            <td>選擇運費</td>
+            <th scope="row">6</th>
+            <td>明細</td>
             <td>
-                <select id="product" name="freight">
-                    @foreach($freights as $freight )
-                        <option value ="{{$freight->id}} ">{{$freight->name}} 運費: {{$freight->price}}</option>
-                    @endforeach
-                </select>
+                @foreach($detail as $val)
+                    名稱:{{$val->product->name}}<br>
+                    數量:{{$val->count}}<br>
+                    總計:{{$val->amount}}<br>
+                @endforeach
             </td>
         </tr>
-        <tr>
-            <th scope="row"></th>
-            <td rowspan="2"></td>
-            <td><input type="submit" class="btn btn-primary" value="送出"></td>
-        </tr>
+
 
         </tbody>
     </table>
 
-    </form>
 
     {{--<!-- Portfolio Item Heading -->--}}
     {{--<h1 class="my-4">Page Heading--}}
