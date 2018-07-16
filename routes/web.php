@@ -12,3 +12,9 @@
 */
 
 Route::get('/','Home@home');
+
+/** 進入購買頁 */
+Route::get('/order','Home@orderPage')->name("order-page");
+
+/** 新增訂單 */
+Route::post('/order','Home@order')->name("create-order");

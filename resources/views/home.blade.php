@@ -31,7 +31,11 @@
             <ul class="navbar-nav ml-auto">
                 @foreach($menu as $menuData)
                     <li class="nav-item">
-                        <a class="nav-link" href="#">{{$menuData->name}}</a>
+                        @if($menuData->route_name != 'null')
+                        <a class="nav-link" href="{{route($menuData->route_name)}}">{{$menuData->name}}</a>
+                        @else
+                            <a class="nav-link" href="#">{{$menuData->name}}</a>
+                        @endif
                     </li>
                 @endforeach
             </ul>

@@ -36,4 +36,34 @@ class Home extends Controller
     function getMenu(){
         return $this->menu->get();
     }
+
+    /**
+     * 購買頁
+     */
+    function orderPage(){
+
+        $menu = $this->getMenu();
+
+        /** @var 傳入view的資料 $viewData */
+        $viewData = [
+            'menu'=>$menu
+        ];
+        return view('order',$viewData);
+    }
+
+    /**
+     * 購買頁
+     */
+    function order(){
+
+        $menu = $this->getMenu();
+
+        /** @var 傳入view的資料 $viewData */
+        $viewData = [
+            'menu'=>$menu
+        ];
+        return view('order',$viewData);
+    }
+
+
 }
