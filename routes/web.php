@@ -17,7 +17,7 @@ Route::get('/','Home@home');
 Route::get('/order','Home@orderPage')->name("order-page");
 
 /** 新增訂單 */
-Route::post('/order','Home@order')->name("create-order");
+Route::post('/order','Home@order')->name("create-order")->middleware('create.order.check');
 
 /** 測試 */
 Route::get('/test','Home@test')->name("test");

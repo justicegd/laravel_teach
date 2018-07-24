@@ -9,6 +9,7 @@ use App\Models\Order;
 use App\Models\OrderDetail;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class Home extends Controller
 {
@@ -222,10 +223,19 @@ class Home extends Controller
     /**
      * 測試
      */
-    function test()
+    function test(Request $request)
     {
-        $data = $this->order->find(1);
-        dd($data->orderDetail()->first()->product->name);
+
+        $rules=[
+          'title'=>'required'
+        ];
+        $messages = [
+            'title.required' => '錯誤',
+        ];
+
+        $validator = Validator::make($request->all(), $rules, $messages);
+        $a = $validator->getMessageBag()->messages();
+        dd($a ['title']);
     }
 
 }
