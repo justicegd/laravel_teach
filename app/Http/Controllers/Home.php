@@ -219,5 +219,13 @@ class Home extends Controller
         return $order->save();
     }
 
+    /**
+     * 測試
+     */
+    function test()
+    {
+        $data = $this->order->find(1);
+        dd($data->orderDetail()->first()->product->name);
+    }
 
 }

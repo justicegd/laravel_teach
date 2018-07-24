@@ -20,4 +20,8 @@ class Order extends Model
         }
         return $statusName;
     }
+
+    function orderDetail(){
+        return $this->hasMany('App\Models\OrderDetail', 'order_id', 'id');
+    }
 }
