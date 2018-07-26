@@ -55,22 +55,22 @@
         <tbody>
         <tr>
             <th scope="row">1</th>
-            <td>姓名 </td>
+            <td>@lang('order.name') </td>
             <td><input type="text" id="name" name="name" value="irvin">{{$errors->first('name')}}</td>
         </tr>
         <tr>
             <th scope="row">2</th>
-            <td>電話</td>
+            <td>@lang('order.phone')</td>
             <td><input type="text" id="phone" name="phone" value="0987654321"></td>
         </tr>
         <tr>
             <th scope="row">3</th>
-            <td>地址</td>
+            <td>@lang('order.address')</td>
             <td><input type="text" id="address" name="address" value="高雄市新興區"></td>
         </tr>
         <tr>
             <th scope="row">4</th>
-            <td>選擇商品</td>
+            <td>@lang('order.product')</td>
             <td>
                 <select id="product" name="product">
                     @foreach($products as $product )
@@ -81,7 +81,7 @@
         </tr>
         <tr>
             <th scope="row">5</th>
-            <td>數量</td>
+            <td>@lang('order.number')</td>
             <td>
                 <select id="total" name="total">
                     <option value ="1">1</option>
@@ -96,7 +96,7 @@
         </tr>
         <tr>
             <th scope="row">4</th>
-            <td>選擇運費</td>
+            <td>@lang('order.chooseFreight')</td>
             <td>
                 <select id="product" name="freight">
                     @foreach($freights as $freight )

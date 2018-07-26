@@ -10,6 +10,7 @@ use App\Models\Order;
 use App\Models\OrderDetail;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Validator;
 
 class Home extends Controller
@@ -62,7 +63,9 @@ class Home extends Controller
      */
     function orderPage()
     {
-
+        App::setLocale('en');
+//        $a = trans('order.name');
+//        dd($a);
         /** 取menu data */
         $menu = $this->getMenu();
         /** 取商品data */
