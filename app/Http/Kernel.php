@@ -61,6 +61,9 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         /** 新增訂單驗證 */
         'create.order.check' => \App\Http\Middleware\CreateOrder::class,
+        /** 登錄驗證 */
+        'login.check' => \App\Http\Middleware\CheckLogin::class,
+
 
 
     ];

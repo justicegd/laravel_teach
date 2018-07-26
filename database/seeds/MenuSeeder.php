@@ -49,6 +49,12 @@ class MenuSeeder extends Seeder
                 'created_at' => $datetime,
                 'updated_at' => $datetime,
             ],
+            [
+                'name'       => '登出',
+                'route_name' => 'logout',
+                'created_at' => $datetime,
+                'updated_at' => $datetime,
+            ],
 
         ];
 
