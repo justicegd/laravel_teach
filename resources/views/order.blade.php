@@ -55,8 +55,8 @@
         <tbody>
         <tr>
             <th scope="row">1</th>
-            <td>姓名</td>
-            <td><input type="text" id="name" name="name" value="irvin"></td>
+            <td>姓名 </td>
+            <td><input type="text" id="name" name="name" value="irvin">{{$errors->first('name')}}</td>
         </tr>
         <tr>
             <th scope="row">2</th>

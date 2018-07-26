@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateOrderPost;
 use App\Models\Freight;
 use App\Models\FreightOffer;
 use App\Models\Menu;
@@ -99,7 +100,7 @@ class Home extends Controller
     /**
      * 購買頁
      */
-    function order(Request $request)
+    function order(CreateOrderPost $request)
     {
         $name    = $request->input('name');// 姓名
         $phone   = $request->input('phone');// 電話
