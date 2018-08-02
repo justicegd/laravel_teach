@@ -105,8 +105,12 @@ class Home extends Controller
      */
     function order(CreateOrderPost $request)
     {
-        $aa = $request->file('img')->store('img');
-        dd($aa);
+//        $aa = $request->file('img')->store('img');
+//        dd($aa);
+        $path = $request->file('img')->storeAs(
+            'img', 'product_img.jpeg'
+        );
+        dd($path);
         $name    = $request->input('name');// 姓名
         $phone   = $request->input('phone');// 電話
         $address = $request->input('address');// 地址
