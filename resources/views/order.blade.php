@@ -46,7 +46,7 @@
 <!-- Page Content -->
 <div class="container">
     <h1>訂購</h1>
-    <form method="post" action="{{route('create-order')}}">
+    <form method="post" action="{{route('create-order')}}" enctype="multipart/form-data">
         {{ csrf_field() }}
     <table class="table">
         <thead class="thead-dark">
@@ -96,6 +96,13 @@
                     <option value ="6">6</option>
                     <option value ="7">7</option>
                 </select>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">5</th>
+            <td>@lang('order.number')</td>
+            <td>
+                <input type="file" name="img">
             </td>
         </tr>
         <tr>
