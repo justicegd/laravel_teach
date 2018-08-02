@@ -11,6 +11,7 @@ use App\Models\OrderDetail;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class Home extends Controller
@@ -107,10 +108,12 @@ class Home extends Controller
     {
 //        $aa = $request->file('img')->store('img');
 //        dd($aa);
-        $path = $request->file('img')->storeAs(
-            'img', 'product_img.jpeg'
-        );
-        dd($path);
+//        $path = $request->file('img')->storeAs(
+//            'img', 'product_img.jpeg'
+//        );
+//        dd($path);
+        $result = Storage::delete('img/product_img.jpeg');
+        dd($result);
         $name    = $request->input('name');// 姓名
         $phone   = $request->input('phone');// 電話
         $address = $request->input('address');// 地址
