@@ -39,3 +39,9 @@ Route::get('/logout',function (){
 })->name("logout");
 
 
+/** 圖片顯示 */
+Route::get("/img_show",function (){
+
+    echo '<img src="'.asset('storage/test.jpeg').'" alt="Smiley face" width="100" height="100">';
+});
+
