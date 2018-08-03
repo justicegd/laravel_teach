@@ -2,6 +2,7 @@
 
 namespace App\Http\ViewComposers;
 
+use App\Models\Menu;
 use App\Services\ConfigServices;
 use Illuminate\View\View;
 
@@ -18,9 +19,10 @@ class WebComposer
      * 建立一個新的個人檔案視圖組件。
      *
      */
-    public function __construct(ConfigServices $configSer)
+    public function __construct(ConfigServices $configSer,Menu $menu)
     {
         $this->configSer = $configSer;
+        $this->menu = $menu;
     }
 
     /**
@@ -32,5 +34,9 @@ class WebComposer
     public function compose(View $view)
     {
         $view->with('lookCount', $this->configSer->getLookCount());
+
+        $view->with('menu', $this->menu->get());
+
+
     }
 }

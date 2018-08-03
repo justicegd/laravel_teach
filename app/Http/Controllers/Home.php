@@ -40,23 +40,7 @@ class Home extends Controller
      */
     function home()
     {
-
-        $menu = $this->getMenu();
-
-        /** @var 傳入view的資料 $viewData */
-        $viewData = [
-            'menu' => $menu,
-        ];
-
-        return view('home', $viewData);
-    }
-
-    /**
-     * 取menu資料
-     */
-    function getMenu()
-    {
-        return $this->menu->get();
+        return view('home');
     }
 
     /**
@@ -64,11 +48,11 @@ class Home extends Controller
      */
     function orderPage()
     {
-        App::setLocale('en');
+//        App::setLocale('en');
 //        $a = trans('order.name');
 //        dd($a);
-        /** 取menu data */
-        $menu = $this->getMenu();
+//        /** 取menu data */
+//        $menu = $this->getMenu();
         /** 取商品data */
         $product = $this->getProduct();
         /** 運費data */
@@ -76,7 +60,6 @@ class Home extends Controller
 
         /** @var 傳入view的資料 $viewData */
         $viewData = [
-            'menu'     => $menu,
             'products' => $product,
             'freights' => $freight,
         ];
@@ -148,7 +131,7 @@ class Home extends Controller
         $detail = $this->orderDetail->where("order_id", $orderId)->get();
 
         /** $menu */
-        $menu     = $this->getMenu();
+        $menu = $this->getMenu();
 
         $viewData = [
             'order'  => $order,
@@ -234,20 +217,28 @@ class Home extends Controller
     }
 
     /**
+     * 取menu資料
+     */
+    function getMenu()
+    {
+        return $this->menu->get();
+    }
+
+    /**
      * 測試
      */
     function test(Request $request)
     {
 
-        $rules=[
-          'title'=>'required'
+        $rules    = [
+            'title' => 'required',
         ];
         $messages = [
             'title.required' => '錯誤',
         ];
 
         $validator = Validator::make($request->all(), $rules, $messages);
-        $a = $validator->getMessageBag()->messages();
+        $a         = $validator->getMessageBag()->messages();
         dd($a ['title']);
     }
 
