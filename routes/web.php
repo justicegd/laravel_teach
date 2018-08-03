@@ -45,3 +45,5 @@ Route::get("/img_show",function (){
     echo '<img src="'.asset('storage/test.jpeg').'" alt="Smiley face" width="100" height="100">';
 });
 
+/** 新增訂單 */
+Route::get('/test_event','Home@testEvent');

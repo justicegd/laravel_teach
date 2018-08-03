@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\CreateOrder;
 use App\Http\Requests\CreateOrderPost;
 use App\Models\Freight;
 use App\Models\FreightOffer;
@@ -9,6 +10,7 @@ use App\Models\Menu;
 use App\Models\Order;
 use App\Models\OrderDetail;
 use App\Models\Product;
+use App\Services\ConfigServices;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Storage;
@@ -25,7 +27,8 @@ class Home extends Controller
         Order $order,
         OrderDetail $orderDetail,
         Freight $freight,
-        FreightOffer $freightOffer
+        FreightOffer $freightOffer,
+        ConfigServices $configSer
     ) {
         $this->menu         = $menu;
         $this->product      = $product;
@@ -33,6 +36,7 @@ class Home extends Controller
         $this->orderDetail  = $orderDetail;
         $this->freight      = $freight;
         $this->freightOffer = $freightOffer;
+        $this->configSer    = $configSer;
     }
 
     /**
@@ -240,6 +244,12 @@ class Home extends Controller
         $validator = Validator::make($request->all(), $rules, $messages);
         $a         = $validator->getMessageBag()->messages();
         dd($a ['title']);
+    }
+
+    function testEvent(){
+        event(new CreateOrder);
+        $orderCount = $this->configSer->getOrderCount();
+        return '訂單數量:'.$orderCount ;
     }
 
 }

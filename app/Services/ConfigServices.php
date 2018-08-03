@@ -26,4 +26,39 @@ class ConfigServices
 
     }
 
+    /**
+     * 新增訂單數量
+     */
+    public function addOrderCount()
+    {
+
+        $count= 1;
+        $orderCount = $this->config->where('key','order_count')->get();
+        if($orderCount->count()>0){
+            $orderCountData = $orderCount->first();
+            $orderCountNumber = $orderCountData->value;
+            $model = $this->config->find($orderCountData->id);
+            $model->value = $orderCountNumber +1;
+            $model->save();
+
+        }else{
+            $model = $this->config->newInstance();
+            $model->key = 'order_count';
+            $model->value = $count;
+            $model->save();
+        }
+
+        return 'ok;';
+
+    }
+
+    function getOrderCount(){
+        $orderCount = $this->config->where('key','order_count')->get();
+        if($orderCount->count()>0){
+           return $orderCount->first()->value;
+        }else{
+            return 0;
+        }
+    }
+
 }
